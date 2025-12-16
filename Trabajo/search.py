@@ -3,10 +3,12 @@
 The way to use this code is to subclass Problem to create a class of problems,
 then create problem instances and solve them with calls to the various search
 functions."""
-
+import io
+from contextlib import redirect_stdout
 
 from utils import *
 import random
+import timeit
 import sys
 
 
@@ -134,6 +136,32 @@ def branch_bound_graph_search(problem):
 def underestimation_branch_bound_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, priority_list_by_heuristic(problem))
+
+
+""" Dict that save the search algorithms
+    It used in 'calculate_time'
+"""
+algorithms = {
+    "bfs": breadth_first_graph_search,
+    "dfs": depth_first_graph_search,
+    "bnb": branch_bound_graph_search,
+    "ubb": underestimation_branch_bound_graph_search
+}
+
+
+
+def calculate_time(algorithm, problem):
+    """Calculate the time it takes to execute the algorithm with a specific problem.
+    For more accurancy, execute the search function 100 times."""
+    def wrapped():
+        # Redirect the input to a buffer, so don't print in console
+        with redirect_stdout(io.StringIO()):
+            algorithms[algorithm](problem)
+
+    #Gets iterations time, repeting 100 times
+    time = timeit.repeat(wrapped, number=100)
+    return f"Mínimo : {min(time):.5f} s\nMáximo: {max(time):.5f} s\nPromedio: {sum(time)/len(time):.5f} s"
+
 
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
