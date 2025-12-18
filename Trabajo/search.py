@@ -5,7 +5,7 @@ then create problem instances and solve them with calls to the various search
 functions."""
 import io
 from contextlib import redirect_stdout
-
+import search
 from utils import *
 import random
 import timeit
@@ -76,7 +76,7 @@ class Node:
         """Create a list of nodes from the root to this node."""
         x, result = self, [self]
         ###Coste total del recorrido coste=x.path_cost
-        print("Coste = ",x.path_cost)
+        print("Coste=",x.path_cost)
         while x.parent:
             result.append(x.parent)
 
@@ -103,18 +103,13 @@ def graph_search(problem, listaAbierta):
     listaAbierta.append(Node(problem.initial))
     while listaAbierta:
         node = listaAbierta.pop()
-        ### Estos es para ver que nodo se esta visitando
-        # print(node)
         nodo_visitados += 1
         if problem.goal_test(node.state):
-            print("Nodos visitados = ",nodo_visitados)
-            print("Nodos generados = ", nodo_generados)
+            print("Nodos generados=", nodo_generados,"Nodos visitados=",nodo_visitados, end=" ")
             return node
         if node.state not in listaCerrada:
             listaCerrada[node.state] = True
             nodo_generados += len(node.expand(problem))
-            ### Estos es para ver que nodos se estan generandos
-            # print(node.expand(problem))
             listaAbierta.extend(node.expand(problem))
     return None
 
@@ -142,10 +137,10 @@ def underestimation_branch_bound_graph_search(problem):
     It used in 'calculate_time'
 """
 algorithms = {
-    "bfs": breadth_first_graph_search,
-    "dfs": depth_first_graph_search,
-    "bnb": branch_bound_graph_search,
-    "ubb": underestimation_branch_bound_graph_search
+    "bfs": search.breadth_first_graph_search,
+    "dfs": search.depth_first_graph_search,
+    "bnb": search.branch_bound_graph_search,
+    "ubb": search.underestimation_branch_bound_graph_search
 }
 
 
@@ -156,11 +151,19 @@ def calculate_time(algorithm, problem):
     def wrapped():
         # Redirect the input to a buffer, so don't print in console
         with redirect_stdout(io.StringIO()):
-            algorithms[algorithm](problem)
+            algorithms[algorithm](problem).path()
 
     #Gets iterations time, repeting 100 times
     time = timeit.repeat(wrapped, number=100)
-    return f"Mínimo : {min(time):.5f} s\nMáximo: {max(time):.5f} s\nPromedio: {sum(time)/len(time):.5f} s"
+    min_ms = (min(time) / 100) * 1000
+    max_ms = (max(time) / 100) * 1000
+    avg_ms = (sum(time) / len(time) / 100) * 1000
+
+    return (
+        f"Mínimo: {min_ms:.3f} ms "
+        f"Máximo: {max_ms:.3f} ms "
+        f"Promedio: {avg_ms:.3f} ms"
+    )
 
 
 # _____________________________________________________________________________

@@ -515,7 +515,6 @@ class Queue:
             self.append(item)
 
 class priority_list:
-    """A First-In-First-Out Queue."""
 
     def __init__(self):
         self.A = []
