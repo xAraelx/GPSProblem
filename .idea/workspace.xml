@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc478ffe-3f9a-49d3-ad44-1b914d90b804" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Trabajo/ReadME.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/GPSProblem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GPSProblem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadME.md" beforeDir="false" afterPath="$PROJECT_DIR$/ReadME.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Trabajo/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trabajo/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Trabajo/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trabajo/search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Trabajo/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trabajo/utils.py" afterDir="false" />
@@ -30,7 +30,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/xAraelx/GPSProblem.git",
-    "accountId": "5989fe12-b2c7-449b-a867-4a9a47ce28c2"
+    "accountId": "d8cd1a7d-5b18-4e0a-b842-f847ff01469e"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -41,21 +41,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.run.executor&quot;: &quot;Run&quot;,
-    &quot;Python.search.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.run.executor": "Run",
+    "Python.search.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-7bb8055f9097-cbfc7b97e6b2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-252.28238.29" />
+        <option value="bundled-python-sdk-b3d66beaba9a-c6efb3732140-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26199.168" />
       </set>
     </attachedChunks>
   </component>

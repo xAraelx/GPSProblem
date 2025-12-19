@@ -558,6 +558,30 @@ class priority_list_by_heuristic:
     def sort(self):
         self.A.sort(key=lambda item:(item.path_cost+self.heuristica.h(item)) , reverse=True)
 
+class priority_list_by_heuristic_sobreestimado:
+    """A First-In-First-Out Queue."""
+
+    def __init__(self, heuristica, factor):
+        self.heuristica = heuristica
+        self.A = []
+        self.factor = factor
+
+    def append(self, item):
+        self.A.append(item)
+
+    def __len__(self):
+        return len(self.A)
+
+    def extend(self, items):
+        self.A.extend(items)
+        self.sort()
+
+    def pop(self):
+        return self.A.pop()
+
+    def sort(self):
+        self.A.sort(key=lambda item:(item.path_cost+ self.factor*self.heuristica.h(item)) , reverse=True)
+
 def Stack():
     """Return an empty list, suitable as a Last-In-First-Out Queue."""
     return []

@@ -132,6 +132,10 @@ def underestimation_branch_bound_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, priority_list_by_heuristic(problem))
 
+def overestimation_branch_bound_graph_search(problem):
+    """Search the deepest nodes in the search tree first. [p 74]"""
+    return graph_search(problem, priority_list_by_heuristic_sobreestimado(problem, 5))
+
 
 """ Dict that save the search algorithms
     It used in 'calculate_time'
@@ -140,7 +144,8 @@ algorithms = {
     "bfs": search.breadth_first_graph_search,
     "dfs": search.depth_first_graph_search,
     "bnb": search.branch_bound_graph_search,
-    "ubb": search.underestimation_branch_bound_graph_search
+    "ubb": search.underestimation_branch_bound_graph_search,
+    "ubbe": search.overestimation_branch_bound_graph_search
 }
 
 
